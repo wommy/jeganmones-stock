@@ -1,0 +1,18 @@
+{
+	"name": "jeganmones-stock",
+	"version": "1.0.0",
+	"description": "a little app to help jegan with her inventory",
+	"main": "index.js",
+	"repository": "git@github.com:wommy/jeganmones-stock.git",
+	"author": "wommy <tom@technomad.media>",
+	"license": "MIT",
+	"devDependencies": {
+		"autoprefixer": "^10.0.2",
+		"postcss": "^8.1.7",
+		"postcss-cli": "^8.3.0",
+		"tailwindcss": "^2.0.1"
+	},
+	"scripts": {
+		"tailwind": "postcss css/tailwind.css -o css/style.css"
+	}
+}

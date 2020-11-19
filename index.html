@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://unpkg.com/sanitize.css" />
+		<link href="https://unpkg.com/sanitize.css/typography.css" />
+		<link href="https://unpkg.com/sanitize.css/forms.css" />
+		<link href="https://unpkg.com/sanitize.css/assets.css" />
+		<link href="/css/style.css" rel="stylesheet" />
+		<title>Jegan Mones' Stock</title>
+	</head>
+	<body>
+		<div class="container mx-auto">
+			<h1 class="text-center">Jegan Mones' Stock</h1>
+			<form id="material-form" class="mt-4">
+				<label for="title">
+					<input type="text" id="title" class="" />
+				</label>
+				<label for="quantity">
+					<input type="number" id="quantity" value="0" class="" />
+				</label>
+				<input type="submit" value="Add Material" />
+			</form>
+			<table class="mx-auto mt-4">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Quantity</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="material-list"></tbody>
+			</table>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>
