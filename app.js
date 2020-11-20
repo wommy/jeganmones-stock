@@ -17,28 +17,39 @@
 	// switch dashboard from log to totals
 	// ? modal
 
+let materialArr = []
 
-
-eventsArr = [
-	'newMaterial', 'addMaterialQuantity',
-	'newProduct', 'newProductQuantity',
-	'newOrder'
-]
-
-let eventButton = (name) => {
-	let btnElement = document.createElement("button")
-	btnElement.innerHTML = name
-	document.querySelector('#eventList').appendChild(btnElement)
+function newMaterials() {
+	newName = prompt("new material name?:","")
+	let Material = {
+		name: newName,
+		quantity: 0
+	}
+	materialArr.push(Material)
+	console.log(materialArr)
 }
+
+
+// eventsArr = [
+// 	'newMaterial', 'addMaterialQuantity',
+// 	'newProduct', 'newProductQuantity',
+// 	'newOrder'
+// ]
+
+// let eventButton = (name) => {
+// 	let btnElement = document.createElement("button")
+// 	btnElement.innerHTML = name
+// 	document.querySelector('#eventList').appendChild(btnElement)
+// }
+
+// const eventList = eventsArr.map( (e) => eventButton(e) )
 
 
 
 // so i need to create three sections in index.html
 
 // made the button
-const eBtn = (name) => `<button>${name}</button>`
-
-const eventList = eventsArr.map( (e) => eventButton(e) )
+// const eBtn = (name) => `<button>${name}</button>`
 
 // const UICreateEventList = (e) => {
 // 	return e.forEach(document.queryselector('#eventList')
