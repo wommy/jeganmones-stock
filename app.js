@@ -1,149 +1,144 @@
-
-
-// what am i doing
-
-
-// create eventList
-	// fill it with events
-		// add material
-		// add quantity => 
-			// sel from all objs
-	// display it on the page
-
-// dashboard || scoreboard
-
-
-// maybe later
-	// switch dashboard from log to totals
-	// ? modal
-
-let materialArr = []
-
-function newMaterials() {
-	newName = prompt("new material name?:","")
-	let Material = {
-		name: newName,
-		quantity: 0
+// material class: represents a new material
+const Material = () => {
+	const quantity = [0]
+	return {
+		// addQuantity: (x) => quantity.push(x)
+		quantity: () => console.log('the new quantity is: ', quantity)
 	}
-	materialArr.push(Material)
-	console.log(materialArr)
+	// addQuantity() = (x) => quantity.push(x)
+	// getQuantity() = quantity.reduce((a, b) => a + b, 0)
 }
 
+const lighter_art = Material()
+lighter_art.quantity()
 
-// eventsArr = [
-// 	'newMaterial', 'addMaterialQuantity',
-// 	'newProduct', 'newProductQuantity',
-// 	'newOrder'
-// ]
+// lighter_art.getQuantity()
 
-// let eventButton = (name) => {
-// 	let btnElement = document.createElement("button")
-// 	btnElement.innerHTML = name
-// 	document.querySelector('#eventList').appendChild(btnElement)
+// ui class: handle ui task
+
+// class UI {
+// 	static displayMaterials() {
+// 		const materials = Store.getMaterials();
+
+// 		materials.forEach((material) => UI.addMaterialToList(material));
+// 	}
+
+// 	static addMaterialToList(material) {
+// 		const list = document.querySelector("#material-list");
+
+// 		const row = document.createElement("tr");
+
+// 		row.innerHTML = `
+// 			<td>${material.title}</td>
+// 			<td>${material.quantity}</td>
+// 			<td><a href="#" class="btn delete">X</a></td>
+// 		`;
+
+// 		list.appendChild(row);
+// 	}
+
+// 	static deleteMaterial(el) {
+// 		if (el.classList.contains("delete")) {
+// 			el.parentElement.parentElement.remove();
+// 		}
+// 	}
+
+// 	static showAlert(message, className) {
+// 		const div = document.createElement("div");
+// 		div.className = `alert alert-${className}`;
+// 		div.appendChild(document.createTextNode(message));
+// 		const container = document.querySelector(".container");
+// 		const form = document.querySelector("#material-form");
+// 		container.insertBefore(div, form);
+
+// 		// vanish in 2 seconds
+// 		setTimeout(() => document.querySelector(".alert").remove(), 2000);
+// 	}
+
+// 	static clearFields() {
+// 		document.querySelector("#title").value = "";
+// 		document.querySelector("#quantity").value = 0;
+// 	}
 // }
 
-// const eventList = eventsArr.map( (e) => eventButton(e) )
+// // store class: handles storage
+// class Store {
+// 	static getMaterials() {
+// 		let materials;
+// 		if (localStorage.getItem("materials") === null) {
+// 			materials = [];
+// 		} else {
+// 			materials = JSON.parse(localStorage.getItem("materials"));
+// 		}
 
+// 		return materials;
+// 	}
 
+// 	static addMaterial(material) {
+// 		const materials = Store.getMaterials();
 
-// so i need to create three sections in index.html
+// 		materials.push(material);
 
-// made the button
-// const eBtn = (name) => `<button>${name}</button>`
+// 		localStorage.setItem("materials", JSON.stringify(materials));
+// 	}
 
-// const UICreateEventList = (e) => {
-// 	return e.forEach(document.queryselector('#eventList')
-// 	.appendChild(e))
+// 	static removeMaterial(title) {
+// 		const materials = Store.getMaterials();
+
+// 		materials.forEach((material, index) => {
+// 			if (material.title === title) {
+// 				materials.splice(index, 1);
+// 			}
+// 		});
+
+// 		localStorage.setItem("materials", JSON.stringify(materials));
+// 	}
 // }
 
-// UICreateEventList(eventList);
+// // event: display material
+// document.addEventListener("DOMContentLoaded", UI.displayMaterials);
 
-// what to do
-	// write p hi to div
+// // event: add material
+// document.querySelector("#material-form").addEventListener("submit", (e) => {
+// 	// prevent actual submit
+// 	e.preventDefault();
 
+// 	// get form values
+// 	const title = document.querySelector("#title").value;
+// 	const quantity = document.querySelector("#quantity").value;
 
+// 	// validate
+// 	if (title === "" || quantity === "") {
+// 		UI.showAlert("Please fill in all fields", "danger");
+// 	} else {
+// 		// instantiate material
+// 		const material = new Materal(title, quantity);
 
-console.log()
+// 		// add material to UI
+// 		UI.addMaterialToList(material);
 
-// lets plug it into the dom
+// 		// add material to store
+// 		Store.addMaterial(material);
 
+// 		// show success message
+// 		UI.showAlert("Material Added", "success");
 
-	// pseudo code
-// new event list
-	// from eventsArr.map
-	// for each
-	// make a button
-	// with arr
+// 		// clear fields
+// 		UI.clearFields();
+// 	}
+// });
 
-// const eventlivst = (a= #eventlist, b= eventarr) => {
-// 	const list = document.queryselector("#eventlist")
-// 	list.appendchild(ebtn(addmaterial))
-// }
+// // event: remove material
+// document.querySelector("#material-list").addEventListener("click", (e) => {
+// 	// remove material from UI
+// 	UI.deleteMaterial(e.target);
 
-// ^ this is map right?
+// 	// remove material from Store
+// 	Store.removeMaterial(
+// 		e.target.parentElement.previousElementSibling.previousElementSibling
+// 			.textContent
+// 	);
 
-
-
-	// addMaterialToList(material) {
-	// 	const list = document.querySelector("#material-list");
-
-	// 	const row = document.createElement("tr");
-
-	// 	row.innerHTML = `
-	// 		<td>${material.title}</td>
-	// 		<td>${material.quantity}</td>
-	// 		<td><a href="#" class="btn delete">X</a></td>
-	// 	`;
-
-	// 	list.appendChild(row);
-	// }
-
-
-
-
-
-
-/*
- *
-<label for="title">
-	<input type="text" id="title" class="" />
-</label>
-<label for="quantity">
-	<input type="number" id="quantity" value="0" class="" />
-</label>
-<input type="submit" value="Add Material" />
-
-
-<thead>
-	<tr>
-		<th>Title</th>
-		<th>Quantity</th>
-		<th></th>
-	</tr>
-</thead>
-<tbody id="material-list"></tbody>
- *
-*/
-
-
-
-
-
-// store class: handles storage
-
-// event display all
-
-// event to add a material
-
-// event to update material quantity
-
-// event to add a product
-
-// event to update product quantity
-
-// event to add an order
-
-
-
-
-// ui class: handles ui talks
+// 	// show success message
+// 	UI.showAlert("Material Removed", "success");
+// });
