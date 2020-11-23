@@ -1,16 +1,23 @@
 // material class: represents a new material
-const Material = () => {
-	const quantity = [0]
-	return {
-		// addQuantity: (x) => quantity.push(x)
-		quantity: () => console.log('the new quantity is: ', quantity)
+const Material = (name) => {
+	state: {
+		name,
+		quantity = [0]
 	}
+	getQuantity(){
+		console.log( this.state.quantity.reduce((a,b) => a+b,0) )
+	}
+
+		// addQuantity: (x) => quantity.push(x)
+		// quantity: () => console.log('the new quantity is: ', quantity)
+
 	// addQuantity() = (x) => quantity.push(x)
 	// getQuantity() = quantity.reduce((a, b) => a + b, 0)
 }
 
+
 const lighter_art = Material()
-lighter_art.quantity()
+lighter_art.getQuantity()
 
 // lighter_art.getQuantity()
 
